@@ -23,7 +23,7 @@ flowchart TB
 
     TERM -->|"HTTP: POST /api/transactions"| GW
     TERM -->|"HTTP: GET /api/cards"| CMS
-    
+
     MERCH -->|"HTTP: POST /api/transactions<br/>GET /api/cards"| GW
     DASH -->|"HTTP /api"| GW
 
@@ -93,4 +93,3 @@ flowchart TB
 | Outbox | [`OutboxEventProcessorImpl.java`](../../../services/card-management/src/main/java/com/processing/cardmanagement/services/OutboxEventProcessorImpl.java) |
 | AMQP-потребители | [`TransactionLogListener.java`](../../../services/transaction-logger/src/main/java/com/processing/transactionlogger/listener/TransactionLogListener.java), [`CardEventListener.java`](../../../services/notification-service/src/main/java/com/processing/notification/listener/CardEventListener.java) |
 | WebSocket Dashboard | [`WebSocketConfig.java`](../../../services/transaction-logger/src/main/java/com/processing/transactionlogger/websocket/WebSocketConfig.java) |
-

@@ -63,7 +63,7 @@ sequenceDiagram
     participant MA as Merchant Acquirer
     participant MQ as RabbitMQ
     participant LOG as Transaction Logger
-    
+
 
     TERM->>GW: POST /api/transactions
     GW->>SW: POST /api/internal/route
