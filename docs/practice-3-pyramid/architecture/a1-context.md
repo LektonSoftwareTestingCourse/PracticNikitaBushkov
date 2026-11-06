@@ -14,7 +14,7 @@ flowchart LR
     BIN["Справочник BIN<br/>Bin Lookup API"]
 
     SMP["СМП<br/>обработка карточных операций<br/>Gateway, Switch, Authorization,<br/>Card Management, Transaction Logger"]
-    
+
     TERM -->|"HTTP/JSON<br/>POST /api/transactions"| SMP
     TERM -->|"HTTP<br/>GET /api/cards"| SMP
     MERCH -->|"HTTP/JSON<br/>POST /api/transactions"| SMP
@@ -42,4 +42,3 @@ flowchart LR
 | Bin Lookup вызывается по `GET /api/bin/{bin}` | [`BinLookupClient.java`](../../../services/authorization/src/main/java/com/processing/authorization/client/BinLookupClient.java), [`BinLookupController.java`](../../../services/bin-lookup/src/main/java/com/processing/binlookup/controller/BinLookupController.java) |
 | Dashboard получает обновления по WebSocket `/ws/transactions` | [`WebSocketConfig.java`](../../../services/transaction-logger/src/main/java/com/processing/transactionlogger/websocket/WebSocketConfig.java) |
 | Состав контейнеров и порты | [`docker-compose.yaml`](../../../docker-compose.yaml) |
-
