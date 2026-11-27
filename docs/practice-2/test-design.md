@@ -82,7 +82,7 @@
 - Если карта не ACTIVE - все amount-параметры = below (иначе тест не имеет смысла)
 - Если expiry = expired - amount_vs_balance = below (по истёкшей карте не провести платёж)
 
-**Дополнительно**  
+**Дополнительно**
 Модель и ограничения - в `docs/practice-2/pict/model-cm.txt`.
 Сгенерированный набор - в `docs/practice-2/pict/cases-cm.txt`.
 

@@ -4,7 +4,7 @@
 
 ```mermaid
 flowchart LR
-    
+
    SW["Switch<br/>LoggerClient"] -.->|"publish routing key=transaction.log"| E1["exchange<br/>smp.transactions topic"]
    E1 -.->|"binding"| Q1["queue<br/>transaction-log"]
    Q1 -.->|"consume"| LOG["Transaction Logger<br/>TransactionLogListener"]

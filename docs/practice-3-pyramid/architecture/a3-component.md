@@ -86,4 +86,3 @@ flowchart LR
 | Генерация PAN | [`CardGeneratorService.java`](../../../services/card-management/src/main/java/com/processing/cardmanagement/services/CardGeneratorService.java), [`LuhnValidator.java`](../../../services/card-management/src/main/java/com/processing/cardmanagement/services/LuhnValidator.java) |
 | Outbox | [`CardEventNotifierImpl.java`](../../../services/card-management/src/main/java/com/processing/cardmanagement/events/CardEventNotifierImpl.java), [`OutboxEventProcessorImpl.java`](../../../services/card-management/src/main/java/com/processing/cardmanagement/services/OutboxEventProcessorImpl.java), [`OutboxProcessor.java`](../../../services/card-management/src/main/java/com/processing/cardmanagement/services/OutboxProcessor.java) |
 | Транзакции CMS | [`TransactionRunnerImpl.java`](../../../services/card-management/src/main/java/com/processing/cardmanagement/services/TransactionRunnerImpl.java) |
-
