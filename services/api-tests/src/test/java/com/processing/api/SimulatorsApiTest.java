@@ -32,7 +32,6 @@ class SimulatorsApiTest {
     @Test
     void shouldRunTerminalSimulationAndValidateRequest() {
         createCard();
-        createCard();
         given().spec(gateway()).body(runRequest(2, "normal", 100))
                 .when().post("/api/simulator/terminal/run")
                 .then().statusCode(200)
@@ -71,6 +70,10 @@ class SimulatorsApiTest {
 
     @Test
     void shouldStartAndStopContinuousSimulation() {
+        createCard();
+        given().spec(gateway()).when().post("/api/simulator/terminal/stop")
+                .then().statusCode(200);
+
         given().spec(gateway()).body(Map.of("tps", 0, "transactionType", "NORMAL"))
                 .when().post("/api/simulator/terminal/start-continuous")
                 .then().statusCode(400).body("error", equalTo("Validation failed"));
@@ -78,17 +81,18 @@ class SimulatorsApiTest {
                 .when().post("/api/simulator/terminal/start-continuous")
                 .then().statusCode(400);
 
-        given().spec(gateway()).body(Map.of("tps", 5, "transactionType", "NORMAL"))
-                .when().post("/api/simulator/terminal/start-continuous")
-                .then().statusCode(200);
-        given().spec(gateway()).when().post("/api/simulator/terminal/stop")
-                .then().statusCode(200);
+        try {
+            given().spec(gateway()).body(Map.of("tps", 5, "transactionType", "NORMAL"))
+                    .when().post("/api/simulator/terminal/start-continuous")
+                    .then().statusCode(200);
+        } finally {
+            given().spec(gateway()).when().post("/api/simulator/terminal/stop")
+                    .then().statusCode(200);
+        }
     }
 
     @Test
     void shouldRunMerchantSimulationAndReturnFee() {
-        createCard();
-        createCard();
         createCard();
         Response run = given().spec(gateway()).body(runRequest(1, "grocery", 100))
                 .when().post("/api/simulator/merchant/run")
